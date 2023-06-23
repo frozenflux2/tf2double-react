@@ -1,0 +1,40 @@
+.notFound {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  /* height: calc(100vh - 82px - 44px); */
+  transform: translateY(-40px);
+}
+
+.notFound h3 {
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.notFound p {
+  margin: 25px 0;
+  color: var(--text-color-tertiary);
+}
+
+.notFound a {
+  font-weight: 600;
+  transition: opacity 300ms;
+}
+
+.notFound a svg {
+  height: 16px;
+  margin-left: 5px;
+}
+
+.notFound a:hover {
+  opacity: .5;
+}
+
+@media (max-width: 768px) {
+  .notFound {
+    height: calc(100vh - 82px);
+  }
+}

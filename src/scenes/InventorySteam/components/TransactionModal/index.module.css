@@ -1,0 +1,139 @@
+.modal {
+  overflow: hidden;
+  padding: 15px;
+}
+
+.header,
+.center,
+.steps {
+  width: 100%;
+  float: left;
+}
+
+.header .left {
+  float: left;
+}
+
+.header .left h4 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header .left p {
+  font-size: 14px;
+  color: var(--text-color-tertiary-alt);
+  margin: 4px 0 0;
+}
+
+.header button {
+  float: right;
+}
+
+.header button svg {
+  color: var(--text-color-tertiary-alt);
+}
+
+.center,
+.center .stepContainer {
+  /* padding: 150px 0; */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 420px;
+  width: 100%;
+  transition: margin 300ms;
+}
+
+.center {
+  width: 300%;
+  justify-content: initial;
+  align-items: initial;
+  flex-direction: row;
+  height: 420px;
+}
+
+.center h3 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+.center p {
+  color: var(--text-color-tertiary-alt);
+  line-height: 1.8em;
+  padding: 0 15px;
+}
+
+.center .icon {
+  height: 48px;
+}
+
+.center .offerBtn {
+  margin-top: 30px;
+  padding: 0 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.center .btns {
+  width: 50%;
+}
+
+.center .btns div {
+  width: calc(50% - 2px - 5px);
+  float: left;
+  background-color: var(--bg-color-0);
+  border: 1px solid #36364e99;
+  border-radius: 6px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 15px 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.center .btns div:hover {
+  cursor: pointer;
+  opacity: .8;
+  transform: translateY(-2px);
+}
+
+.center .btns div svg {
+  height: 28px;
+  width: 28px;
+  margin: 0 0 5px;
+  color: var(--text-color-gold);
+}
+
+.center .btns div {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.steps {
+  text-align: center;
+}
+
+.steps div {
+  height: 12px;
+  width: 12px;
+  background: var(--bg-color-2);
+  display: inline-block;
+  border-radius: 50%;
+  margin: 0 5px;
+  transition: background 300ms;
+}
+
+.steps div[data-checked="true"] {
+  background: var(--theme-color);
+}
+
+@media (max-width: 768px) {
+  .center .btns {
+    width: 100%;
+  }
+}

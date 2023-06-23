@@ -1,0 +1,317 @@
+.container,
+.bg,
+.user,
+.balance,
+.user .lvl,
+.user .lvl .progress {
+  width: 100%;
+  float: left;
+}
+
+.user .lvl p {
+  user-select: none;
+}
+
+.container {
+  background-color: var(--bg-color-1);
+  width: 50%;
+  /* height: 190px; */
+}
+
+.bg {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-color: var(--theme-color);
+  height: 82px;
+  position: relative;
+  z-index: 1;
+}
+
+.bg svg {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 20px;
+  transition: opacity 300ms;
+}
+
+.bg svg:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.content {
+  padding: 15px;
+}
+
+.user {
+  /* transform: translateY(-40px); */
+  margin-top: -40px;
+}
+
+.user img {
+  height: 70px;
+  width: 70px;
+  border-radius: 14px;
+  border: 4px solid var(--bg-color-1);
+  float: left;
+  user-select: none;
+  z-index: 2;
+  position: relative;
+  transition: transform 300ms, opacity 300ms;
+}
+
+.user img:hover {
+  opacity: .8;
+  cursor: pointer;
+  /* transform: translateY(-2px); */
+}
+
+.user .info {
+  float: left;
+  width: calc(100% - 78px - 10px);
+  margin-left: 10px;
+}
+
+.user .info h4 {
+  line-height: 40px;
+  font-weight: 500;
+  margin: 0 0 4px;
+  width: 100%;
+  float: left;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user .lvl p {
+  color: var(--text-color-tertiary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.user .lvl p:nth-child(odd) {
+  float: left;
+}
+
+.user .lvl p:nth-child(even) {
+  float: right;
+}
+
+.user .lvl .progress {
+  background-color: var(--bg-color-0);
+  height: var(--height);
+  border-radius: var(--height);
+  position: relative;
+  --height: 6px;
+}
+
+.user .lvl:hover .progress {
+  --height: 12px;
+}
+
+.user .lvl:hover .progress p {
+  opacity: 1;
+  transform: none;
+}
+
+.user .lvl .progress,
+.user .lvl .progress div {
+  transition: height 300ms, width 300ms;
+}
+
+.user .lvl .progress div {
+  height: var(--height);
+  border-radius: var(--height);
+  background-color: var(--theme-color);
+  width: var(--width);
+  max-width: 100%;
+  animation: initialWidth 600ms;
+}
+
+@keyframes initialWidth {
+  0% { width: 0; }
+  100% { width: var(--width); }
+}
+
+.user .lvl .progress p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  /* line-height: var(--height); */
+  line-height: 12px;
+  color: var(--text-color-primary);
+  font-size: 10px;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 300ms, transform 300ms;
+  /* user-select: none; */
+}
+
+.inv {
+  background-color: var(--bg-color-0);
+  border: 1px solid var(--bg-color-2);
+  float: left;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: var(--text-color-primary);
+  margin: 15px 0 0 10px;
+  text-align: center;
+  transition: transform 300ms;
+}
+
+.inv svg {
+  height: 16px;
+  margin: 10px 0;
+  color: #fdda41;
+}
+
+.inv:hover {
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.balance {
+  line-height: 38px;
+  height: 38px;
+  border-radius: 100px;
+  border: 1px solid var(--bg-color-2);
+  background-color: var(--bg-color-0);
+  /* transform: translateY(-40px); */
+  margin: 15px 0;
+  position: relative;
+  width: 100%;
+  /* width: calc(100% - 52px); */
+}
+
+.balance p {
+  float: left;
+  margin-left: 15px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.balance p svg {
+  float: left;
+  margin: 11px 5px 0 0;
+}
+
+.balance p span {
+  /* line-height: 38px; */
+  float: left;
+}
+
+.balance a,
+.balance button {
+  color: var(--text-color-primary);
+  float: right;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 30px;
+  height: 38px;
+  line-height: 38px;
+  border-radius: 100px;
+  transition: padding 300ms;
+  user-select: none;
+  background: linear-gradient(95.37deg, var(--theme-color) 0%, var(--theme-color-secondary) 98.54%);
+}
+
+.balance a:hover,
+.balance button:hover {
+  cursor: pointer;
+  padding: 0 40px;
+}
+
+.balance .change {
+  position: absolute;
+  bottom: -40px;
+  left: 20px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 10px;
+  line-height: normal;
+  border-radius: 4px;
+  animation: fadeIn 1000ms;
+  /* transform: translateY(-20px); */
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: none;
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+.balance .change[data-profit="false"] {
+  background-color: var(--btn-danger);
+}
+
+.balance .change[data-profit="false"]:before {
+  content: '-';
+}
+
+.balance .change[data-profit="true"] {
+  background-color: var(--btn-success-hover);
+}
+
+.balance .change[data-profit="true"]:before {
+  content: '+';
+}
+
+.balance button svg {
+  height: 16px;
+  float: left;
+  margin: 9px 0;
+}
+
+.balance button span {
+  float: left;
+  line-height: 38px;
+}
+
+.login {
+  text-align: center;
+  padding: 31px 0;
+}
+
+.login p {
+  margin: 20px 0;
+  color: var(--text-color-chat);
+}
+
+.login a,
+.login button {
+  display: inline-block;
+  float: none;
+  /* margin: 20px 0 0; */
+}
+
+.login h3 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.login img {
+  height: 36px;
+}

@@ -1,0 +1,498 @@
+.lb {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+}
+
+.nav .right .btns {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.nav a.link,
+.nav button.link {
+  background-color: var(--bg-color-3);
+  border: 1px solid var(--bg-color-5);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.nav button.link:hover {
+  cursor: pointer;
+}
+
+.nav a.link svg,
+.nav button.link svg {
+  height: 14px;
+  color: var(--text-color-secondary);
+}
+
+.nav a.link:hover svg,
+.nav button.link:hover svg {
+  color: var(--text-color-primary) !important;
+}
+
+.nav p {
+  font-weight: 500;
+}
+
+.nav p span,
+.nav span.time {
+  color: var(--text-color-secondary);
+}
+
+.nav span.time {
+  font-size: 12px;
+}
+
+.nav div.status {
+  margin-left: auto;
+  /* background-color: var(--theme-color); */
+  padding: 0 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 4px;
+  height: 28px;
+  line-height: 28px;
+  background-color: var(--bg-color-3);
+  border: 2px dashed var(--theme-gold);
+  /* background-color: var(--theme-gold); */
+  color: var(--theme-gold);
+}
+
+.nav .right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav .playerbutton {
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  transform: translateX(-50%);
+}
+
+
+
+
+.mines {
+  width: 100%;
+  background-color: var(--bg-color-3);
+  border: 1px solid var(--bg-color-5);
+  margin: 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 28px 0;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 5px 13px rgb(0 0 0 / 20%);
+}
+
+.mines .wrapper {
+  float: left;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  position: relative;
+}
+
+.mines .wrapper div.mine {
+  height: 75px;
+  width: 75px;
+  background-color: var(--bg-color-2);
+  box-shadow: 0 5px 13px rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  transition: background 300ms, transform 300ms, filter 300ms;
+  position: relative;
+  overflow: hidden;
+}
+
+.mines .wrapper div.mine svg {
+  color: var(--text-color-secondary);
+  height: 32px;
+}
+
+.mines .wrapper div.mine[data-status="1"][data-anim="2"] {
+  background: var(--roulette-green);
+}
+
+.mines .wrapper div.mine[data-status="2"][data-anim="2"] {
+  background: var(--roulette-red);
+}
+
+.mines .wrapper div.mine[data-status="2"][data-anim="2"] svg {
+  color: #661913;
+}
+
+/* .mines .wrapper div.mine[data-status="1"] svg,
+.mines .wrapper div.mine[data-status="2"] svg {
+  color: #fff;
+}  */
+.mines .wrapper div.mine[data-status="1"][data-anim="2"] svg,
+.mines .wrapper div.mine[data-status="2"][data-anim="2"] svg {
+  color: #fff;
+} 
+
+.mines .wrapper div.mine:hover {
+  background-color: var(--bg-color-5);
+  cursor: pointer;
+  transform: translateY(-2px);
+}
+
+.mines[data-myturn="false"] .wrapper div.mine:hover {
+  cursor: not-allowed;
+}
+
+.mines .wrapper div.mine div.r {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* animation stuff */
+.mines .wrapper div.mine svg.q,
+.mines .wrapper div.mine div.l,
+.mines .wrapper div.mine div.r {
+  transition: all 400ms;
+}
+
+
+.mines .wrapper div.mine svg.q,
+.mines .wrapper div.mine div.l {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mines .wrapper div.mine div.l {
+  top: unset;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  opacity: 0;
+}
+
+.mines .wrapper div.mine div.l div { /* loader */
+  height: 18px;
+  width: 18px;
+  border: 2px solid var(--bg-color-4);
+  border-top: 2px solid var(--theme-color);
+}
+
+.mines .wrapper div.mine[data-anim="1"] {
+  background-color: var(--bg-color-5);
+}
+
+.mines .wrapper div.mine[data-anim="1"] svg.q,
+.mines .wrapper div.mine[data-anim="2"] svg.q {
+  top: 0;
+  transform: translate(-50%, -100%);
+  opacity: 0;
+}
+
+.mines .wrapper div.mine[data-anim="1"] div.l {
+  top: 50%;
+  bottom: unset;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.mines .wrapper div.mine[data-anim="2"] div.r {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* overlay */
+.mines[data-status="0"][data-amiinthegame="false"] .wrapper div.mine,
+.mines[data-status="1"][data-amiinthegame="false"] .wrapper div.mine {
+  filter: blur(3px);
+}
+
+.mines .wrapper .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 16px;
+  background-color: rgba(0, 0, 0, .5);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms;
+}
+
+.mines[data-status="0"] .wrapper .overlay,
+.mines[data-status="1"] .wrapper .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mines .wrapper .overlay h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.mines .wrapper .overlay p {
+  font-size: 14px;
+  color: var(--text-color-secondary);
+  margin: 0 0 30px;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+
+
+
+.players {
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+  border-radius: 0 0 6px 6px;
+  background-color: var(--bg-color-2);
+  border: 1px solid var(--bg-color-5);
+  border-top: 0;
+  box-shadow: 0 5px 13px rgb(0 0 0 / 20%);
+}
+
+.player {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  gap: 8px;
+  border-right: 1px solid var(--bg-color-5);
+  transition: opacity 300ms, background 300ms;
+  width: calc(100% - 24px);
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.player .arrow {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: rotate(180deg) translate(50%, 0);
+  height: 28px;
+  z-index: 100;
+  transition: opacity 300ms;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.player[data-myturn="true"] .arrow {
+  opacity: 1;
+  animation: hoppy 1000ms infinite;
+}
+
+@keyframes hoppy {
+  0% {
+    transform: rotate(180deg) translate(50%, 0);
+  }
+
+  50% {
+    transform: rotate(180deg) translate(50%, -50%);
+  }
+
+  100% {
+    transform: rotate(180deg) translate(50%, 0);
+  }
+}
+
+.player[data-myturn="true"] {
+  background-color: var(--bg-color-7);
+}
+
+.player[data-status="1"],
+.player[data-status="3"] {
+  opacity: .25;
+}
+
+.player[data-empty="true"] {
+  justify-content: center;
+  user-select: none;
+}
+
+.player[data-active="true"] {
+  background-color: var(--bg-color-7);
+}
+
+.player:nth-last-child(1) {
+  border-right: 0;
+}
+
+.player img {
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--bg-color-5);
+  user-select: none;
+}
+
+.player img:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+.player span {
+  font-size: 12px;
+  color: var(--text-color-secondary);
+}
+
+.player svg {
+  height: 20px;
+  color: var(--text-color-secondary);
+  transform: translateY(1px);
+}
+
+.player .status {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  border-radius: 4px;
+  background: var(--bg-color-1);
+  transition: background 300ms;
+}
+
+.player .status:hover {
+  cursor: pointer;
+}
+
+.player[data-empty="false"] div {
+  width: calc(100% - 44px - 8px - 22px);
+}
+
+.player p {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* .player[data-status="0"] .status {
+  background: var(--roulette-green);
+} */
+
+.player[data-status="0"] {
+  border-top: 3px solid var(--roulette-green-single);
+}
+
+/* .player[data-status="1"] .status {
+  background: var(--roulette-red);
+} */
+
+.player[data-status="1"] {
+  border-top: 3px solid var(--roulette-red-single);
+}
+
+/* .player[data-status="2"] .status {
+  background: var(--theme-gold);
+} */
+
+.player[data-status="2"] {
+  border-top: 3px solid var(--theme-gold);
+}
+
+.player .time {
+  margin-left: auto;
+  font-weight: 600;
+  user-select: none;
+  text-align: right;
+}
+
+.summary {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.summary p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-color-secondary);
+}
+
+.summary img {
+  height: 16px;
+}
+
+.summary p span {
+  color: var(--text-color-primary);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .lb {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav {
+    padding-bottom: 32px;
+    position: relative;
+  }
+
+  .nav .status {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    text-align: center;
+  }
+
+  .mines {
+    margin: 40px 0 0;
+  }
+
+  .mines .wrapper {
+    gap: 6px;
+  }
+
+  .mines .wrapper div.mine {
+    width: 44px;
+    height: 44px;
+  }
+
+  .players {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .summary {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}

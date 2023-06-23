@@ -1,0 +1,37 @@
+.tos {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.tos h3 {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 40px 0 12px;
+  color: var(--theme-color-contrast);
+}
+
+.tos h3:first-child {
+  margin-top: 0;
+}
+
+.tos a {
+  font-weight: 600;
+  color: var(--theme-color);
+}
+
+.tos p,
+.tos li {
+  color: var(--text-color-tertiary);
+  line-height: 1.6em;
+}
+
+.tos li {
+  margin-bottom: 30px;
+}
+
+
+@media (max-width: 768px) {
+  .tos {
+    width: 100%;
+  }
+}

@@ -1,0 +1,61 @@
+.modal {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.modal h3 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 15px;
+}
+
+.modal p {
+  line-height: 1.5em;
+  color: var(--text-color-tertiary);
+  margin: 0 0 10px;
+}
+
+.modal p span {
+  font-weight: 600;
+  color: var(--text-color-primary);
+}
+
+.modal p svg {
+  transform: translateY(3px);
+  margin: 0 2px;
+}
+
+.modal .input {
+  width: 60%;
+  float: left;
+  margin: 20px 20%;
+}
+
+.modal .input input,
+.modal .input button {
+  width: 100%;
+  float: left;
+  margin: 0 0 10px;
+}
+
+.modal .input input {
+  height: 40px;
+  outline: 0;
+  border: 1px solid var(--bg-color-3);
+  border-radius: 20px;
+  text-align: center;
+  background-color: var(--bg-color-1);
+  color: var(--text-color-primary);
+}
+
+.modal .discl {
+  margin: 25px 0 0;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .modal .input {
+    width: 100%;
+    margin: 20px 0;
+  }
+}

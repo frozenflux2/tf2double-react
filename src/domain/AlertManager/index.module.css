@@ -1,0 +1,15 @@
+.alerts {
+  position: fixed;
+  right: 50px;
+  bottom: 40px;
+  width: 320px;
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .alerts {
+    left: 20px;
+    right: 20px;
+    width: auto;
+  }
+}

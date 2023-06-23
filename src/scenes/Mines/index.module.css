@@ -1,0 +1,151 @@
+.table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  border-radius: 12px;
+  background-color: var(--bg-color-3);
+  border: 1px solid var(--bg-color-5);
+  box-shadow: 0 5px 13px rgb(0 0 0 / 20%);
+  padding: 15px;
+  text-align: center;
+  font-weight: 500;
+  transition: opacity 300ms, transform 300ms;
+  user-select: none;
+  animation: fadeInNice 300ms;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInNice {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.row:hover {
+  cursor: pointer;
+  opacity: .9;
+  /* margin-top: -3px; */
+  transform: translateY(-2px);
+}
+
+.row .value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin-left: auto; */
+  gap: 6px;
+}
+
+.row .value h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffaf52;
+  gap: 6px;
+  transition: transform 300ms;
+}
+
+.row .value p {
+  color: var(--text-color-secondary);
+  transition: transform 300ms, opacity 300ms;
+}
+
+.row .value h3 img {
+  height: 16px;
+  transform: translateY(-1px);
+}
+
+.row .value p {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.row .value p img {
+  height: 12px;
+  filter: grayscale(1);
+  transform: translateY(-1px);
+}
+
+.row .top,
+.row .top .avatars,
+.row .top .avatars div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row .top {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.row .top .avatars {
+  margin-right: 14px;
+}
+
+.row .top .avatars img,
+.row .top .avatars div {
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  border: 3px solid var(--bg-color-5);
+  transition: opacity 300ms, transform 300ms;
+  margin-right: -14px;
+}
+
+/* .row .top .avatars img:hover {
+  opacity: .7;
+} */
+
+.row .top .avatars div {
+  --color: #55556a;
+  border: 2px dashed var(--color);
+  color: var(--color);
+  background-color: var(--bg-color-1);
+}
+
+.row .top .avatars div svg {
+  height: 16px;
+}
+
+.row .top .avatars div:hover {
+  --color: #707089;
+  border: 2px solid var(--color);
+}
+
+.row .status {
+  display: flex;
+  flex-direction: column;
+  transition: opacity 300ms;
+  opacity: 0;
+}
+
+.row[data-status="1"] .status,
+.row[data-status="2"] .status {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .table {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

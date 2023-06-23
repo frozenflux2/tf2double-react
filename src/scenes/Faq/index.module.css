@@ -1,0 +1,115 @@
+.faq h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin: 0 0 40px;
+  text-align: center;
+  color: var(--theme-color-contrast);
+}
+
+.container {
+  width: 50%;
+  float: left;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  margin: 0 25%;
+  padding: 0 0 50px;
+}
+
+.element {
+  background-color: var(--bg-color-3);
+  /* border: 1px solid var(--bg-color-5); */
+  border-radius: 6px;
+}
+
+.element .header {
+  /* background-color: #20232c; */
+  background-color: var(--bg-color-1);
+  border-radius: 6px;
+  user-select: none;
+}
+
+.element .header:hover {
+  cursor: pointer;
+}
+
+.element .header,
+.element .content {
+  padding: 15px;
+  width: calc(100% - 30px);
+  float: left;
+}
+
+.element .header span {
+  float: left;
+  width: calc(100% - 24px);
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--text-color-primary);
+  /* color: var(--text-color-tertiary); */
+}
+
+.element .header svg {
+  float: left;
+  height: 24px;
+  transition: transform 300ms;
+  color: var(--text-color-tertiary);
+}
+
+.element[data-open="true"] .header svg {
+  transform: rotate(180deg);
+}
+
+.element[data-open="true"] .header {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.element .content {
+  line-height: 1.6em;
+  overflow: hidden;
+  transition: all 300ms;
+  height: 0;
+  padding: 0 15px;
+  color: var(--text-color-tertiary);
+}
+
+.element .content::before,
+.element .content::after {
+  height: 15px;
+  content: '';
+  float: left;
+  width: 100%;
+}
+
+.search {
+  background-color: var(--bg-color-0);
+  border: 1px solid var(--bg-color-2);
+  width: 100%;
+  float: left;
+  border-radius: 6px;
+}
+
+.search input {
+  height: 40px;
+  background-color: transparent;
+  outline: 0;
+  color: var(--text-color-primary);
+  width: calc(100% - 64px);
+  padding: 0 15px;
+  float: left;
+}
+
+.search svg {
+  width: 22px;
+  float: left;
+  margin: 9px 0;
+  color: var(--text-color-tertiary);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+}

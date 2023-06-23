@@ -1,0 +1,20 @@
+.select {
+  margin: 10px 0;
+}
+
+button.bottom {
+  margin-top: auto;
+}
+
+.badge {
+  background-color: #0894E2;
+  color: #001b2a;
+  font-weight: 600;
+  padding: 0 5px;
+  border-radius: 5px;
+  line-height: 21px;
+  font-size: 12px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 8px 0;
+}

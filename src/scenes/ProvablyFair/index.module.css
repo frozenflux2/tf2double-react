@@ -1,0 +1,143 @@
+/* .pf {
+  display: flex;
+} */
+.pf {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.pf h3 {
+  font-size: 1.4em;
+  font-weight: 600;
+  margin: 0 0 30px;
+  text-align: center ;
+  color: var(--theme-color-contrast);
+}
+
+.menu,
+.main,
+.main p,
+.main h3 {
+  width: 100%;
+  float: left;
+  text-align: left;
+}
+
+.menu {
+  display: flex;
+  margin: 0 0 20px;
+  background-color: var(--bg-color-1);
+  border-radius: 100px;
+  position: relative;
+  user-select: none;
+}
+
+.menu::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(100% / var(--tabs));
+  background-color: var(--bg-color-6);
+  border-radius: 100px;
+  z-index: 50;
+  transition: transform 300ms;
+  transform: translate(calc(100% * var(--current-tab)));
+  content: '';
+}
+
+/* .pf[data-tab="1"] .menu::before {
+  transform: translateX(100%);
+} */
+
+.menu div {
+  padding: 14px 0;
+  width: 100%;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-tertiary);
+  position: relative;
+  z-index: 52;
+  transition: background 300ms, color 300ms, border 300ms;
+}
+
+.menu div:hover {
+  /* background-color: var(--bg-color-5); */
+  color: var(--text-color-primary);
+  cursor: pointer;
+}
+
+.menu div[data-active="true"] {
+  color: var(--theme-color-contrast);
+  /* background-color: var(--bg-color-6); */
+}
+
+.main {
+  overflow: hidden;
+  padding: 0 0 40px 0;
+}
+
+.main p {
+  line-height: 1.5em;
+  color: var(--text-color-tertiary);
+}
+
+.main p a {
+  /* margin: 0 5px 0 0; */
+  font-weight: 500;
+}
+
+.main p a:hover {
+  opacity: .7;
+}
+
+.main p span {
+  text-decoration: underline;
+}
+
+.main h3 {
+  margin: 30px 0 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--text-color-primary);
+}
+
+.main code {
+  background-color: #19192499;
+  border: 1px solid #36364e99;
+  padding: 15px;
+  float: left;
+  width: calc(100% - 32px);
+  margin: 12px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  user-select: text;
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+}
+
+.main code span {
+  text-decoration: none;
+}
+
+.pages {
+  width: calc(100% * var(--tabs));
+  display: grid;
+  grid-template-columns: repeat(var(--tabs), 1fr);
+  transition: transform 300ms;
+  transform: translate( calc( (100% / var(--tabs)) * var(--current-tab) * -1 ) );
+}
+
+.page {
+  width: 100%;
+  float: left;
+}
+
+@media (max-width: 768px) {
+  .menu,
+  .main,
+  .pf {
+    width: 100%;
+  }
+}

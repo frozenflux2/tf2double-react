@@ -1,0 +1,165 @@
+.modal {
+  overflow: hidden;
+}
+
+.bg {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.container {
+  width: 50%; /* technically 50 but its actually 100% of the modal */
+  border-radius: 8px;
+  height: auto;
+  background-color: var(--bg-color-1);
+  transition: transform 300ms;
+}
+
+.container[data-tab] {
+  transform: translateX(-100%);
+}
+
+.name {
+  position: relative;
+  z-index: 201;
+  max-width: calc(100% - 20px);
+}
+
+.actions {
+  width: 100%;
+  float: left;
+  margin: 15px 0;
+}
+
+.actions a,
+.actions button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.actions a[data-variant="primary"] svg,
+.actions button[data-variant="primary"] svg {
+  color: var(--text-color-chat);
+}
+
+.actions button,
+.actions a {
+  background-color: var(--bg-color-7) !important;
+  color: var(--text-color-secondary);
+}
+
+.actions button:hover,
+.actions a:hover {
+  background-color: var(--bg-color-5) !important;
+  color: var(--text-color-primary);
+}
+
+.actions button[data-variant="danger"] {
+  color: var(--text-color-primary);
+}
+
+.tabsContainer {
+  width: 200%;
+  float: left;
+  display: flex;
+}
+
+.newTab {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .newTab[data-tab="false"] {
+  height: 0;
+} */
+.newTab .back {
+  float: left;
+  transition: transform 300ms, opacity 300ms;
+  margin: 15px;
+  width: calc(100% - 30px);
+}
+
+.newTab .back svg {
+  float: left;
+  height: 18px;
+  margin: 0 8px 0 0;
+  color: var(--text-color-chat);
+}
+
+.newTab .back:hover {
+  cursor: pointer;
+  opacity: .7;
+  transform: translateY(-2px);
+}
+
+.newTab .back p {
+  float: left;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  transform: translateY(1px);
+  color: var(--text-color-primary);
+}
+
+.content {
+  padding: 15px;
+  width: calc(100% - 30px);
+  max-height: calc(100vh - 200px);
+  float: left;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.content h4 {
+  align-self: center;
+  text-align: center;
+  width: 100%;
+  color: var(--text-color-chat);
+}
+
+.adminTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-chat);
+  margin: 15px 0 10px;
+  float: left;
+}
+
+.admin {
+  width: 100%;
+  float: left;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+.admin a,
+.admin button {
+  margin: 0;
+}
+
+.newTab div[data-pos="mid"] {
+  margin-top: auto;
+}
+
+.newTab h5 {
+  float: left;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color-chat);
+}
+
+.ban {
+  float: left;
+  width: 100%;
+  margin: 25px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--roulette-red-single);
+  font-weight: 500;
+}
